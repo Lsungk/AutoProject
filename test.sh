@@ -28,7 +28,7 @@ su - stack -c "git clone https://opendev.org/openstack/devstack"
 
 # devstack 디렉터리 이동 및 local.conf 복사
 
-cp /opt/stack/devstack/samples/local.conf /opt/stack/devstack/local.conf"
+cp /opt/stack/devstack/samples/local.conf /opt/stack/devstack/local.conf
 
 # IP 저장
 IP=`hostname -I | cut -f 1 -d ' '`"
