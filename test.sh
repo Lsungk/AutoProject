@@ -52,7 +52,7 @@ su - openstack -c "sudo git config --global core.compression -l"
 su - openstack -c "sudo git clone --depth=1 https://opendev.org/openstack/neutron.gi --branch stable/zed"
 
 # 쉘 실행
-su - openstack -c "sh /stack.sh"
+su - openstack -c "sh /opt/openstack/devstack/stack.sh"
 
 echo --------------------------------------------------
 echo                        종료
