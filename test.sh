@@ -52,8 +52,8 @@ git config --global core.compression -1
 su - stack -c "sudo git clone --depth=1 https://opendev.org/openstack/neutron.git --branch stable/zed"
 
 # 쉘 실행
-sh /opt/stack/devstack/unstack.sh
-sh /opt/stack/devstack/stack.sh
+su - stack -c "sh /opt/stack/devstack/unstack.sh"
+su - stack -c "sh /opt/stack/devstack/stack.sh"
 
 echo --------------------------------------------------
 echo "                    종 료                       "
