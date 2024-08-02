@@ -49,10 +49,10 @@ git config --global http.postBuffer 1048576000
 git config --global core.longpaths true
 git config --global core.compression -1
 
-su - openstack -c "sudo git clone --depth=1 https://opendev.org/openstack/neutron.gi --branch stable/zed"
+su - openstack -c "sudo git clone --depth=1 https://opendev.org/openstack/neutron.git --branch stable/zed"
 
 # 쉘 실행
-source /opt/openstack/devstack/stack.sh
+sh /opt/openstack/devstack/stack.sh
 
 echo --------------------------------------------------
 echo "                    종 료                       "
