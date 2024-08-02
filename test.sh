@@ -15,10 +15,10 @@ systemctl start sshd
 systemctl enable sshd
 
 # Openstack 계정 생성 및 openstack 계정 접속
-useradd -s /bin/bash -d /opt/stack -m openstack
-chmod +x /opt/stack
+useradd -s /bin/bash -d /opt/openstack -m openstack
+chmod +x /opt/openstack
 
-echo "stack ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/stack
+echo "openstack ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/openstack
 
 # gnutls-bin 설치
 su - openstack -c "apt install -y gnutls-bin"
