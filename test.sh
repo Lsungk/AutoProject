@@ -22,9 +22,8 @@ echo "stack ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/stack
 
 sudo -u openstack -i
 
-# git 설치
-apt install -y git
-apt install -y gnutls-bin
+# gnutls-bin 설치
+sudo apt install -y gnutls-bin
 
 # git clone (devstack 설치)
 git clone https://opendev.org/openstack/devstack
@@ -44,7 +43,7 @@ sed -i 's/SERVICE_PASSWORD=$ADMIN_PASSWORD/SERVICE_PASSWORD=openstack/g' local.c
 sed -i 's/HOST_IP=w.x.y.z/HOST_IP=$IP/g' local.conf
 
 # disutils 설치
-apt install -y python3.10-disutils
+sudo apt install -y python3.10-disutils
 
 # git config 추가
 git config --global http.sslVerify false
@@ -55,7 +54,7 @@ git config --global core.compression -l
 git clone --depth=1 https://opendev.org/openstack/neutron.gi --branch stable/zed
 
 # 쉘 실행
-./stack.sh
+sh /stack.sh
 
 echo --------------------------------------------------
 echo                        종료
