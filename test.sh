@@ -28,17 +28,17 @@ su - stack -c "git clone https://opendev.org/openstack/devstack"
 
 # devstack 디렉터리 이동 및 local.conf 복사
 
-cp /opt/stack/devstack/samples/local.conf ./local.conf"
+cp /opt/stack/devstack/samples/local.conf /opt/stack/devstack/local.conf"
 
 # IP 저장
 IP=`hostname -I | cut -f 1 -d ' '`"
 
 # local.conf 파일 수정
-sudo sed -i 's/ADMIN_PASSWORD=nomoresecret/ADMIN_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
-sudo sed -i 's/DATABASE_PASSWORD=stackdb/DATABASE_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
-sudo sed -i 's/RABBIT_PASSWORD=stackqueue/RABBIT_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
-sudo sed -i 's/SERVICE_PASSWORD=$ADMIN_PASSWORD/SERVICE_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
-sudo sed -i 's/HOST_IP=w.x.y.z/HOST_IP=$IP/g' /opt/stack/devstack/local.conf
+sed -i 's/ADMIN_PASSWORD=nomoresecret/ADMIN_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
+sed -i 's/DATABASE_PASSWORD=stackdb/DATABASE_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
+sed -i 's/RABBIT_PASSWORD=stackqueue/RABBIT_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
+sed -i 's/SERVICE_PASSWORD=$ADMIN_PASSWORD/SERVICE_PASSWORD=openstack/g' /opt/stack/devstack/local.conf
+sed -i 's/#HOST_IP=w.x.y.z/HOST_IP=$IP/g' /opt/stack/devstack/local.conf
 
 # disutils 설치
 apt install -y python3.10-distutils
